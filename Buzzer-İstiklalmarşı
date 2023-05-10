@@ -1,0 +1,93 @@
+int notaSayisi = 8;
+int kdo = 262;
+int re = 294;
+int mi = 330;
+int fa = 349;
+int sol =392;
+int la = 440;
+int si =494;
+int ido = 523;
+
+void setup() {
+  
+  
+  
+}
+
+void loop() {
+tone(buzzerPin, mi);
+  delay(233);
+  noTone(buzzerPin);
+  delay(240);  
+  
+  tone(buzzerPin, sol);
+  delay(248);
+  noTone(buzzerPin);
+  delay(140);
+    
+  tone(buzzerPin, si);
+  delay(270);
+  noTone(buzzerPin);
+  delay(120);
+  
+  tone(buzzerPin, sol);
+  delay(250);
+  noTone(buzzerPin);
+  delay(180);
+    
+  tone(buzzerPin, la);
+  delay(690);
+  noTone(buzzerPin);
+  delay(30);
+    
+  tone(buzzerPin, si);
+  delay(200);
+  noTone(buzzerPin);
+  delay(500);
+    
+  tone(buzzerPin, mi);
+  delay(230);
+  noTone(buzzerPin);
+  delay(190);
+    
+  tone(buzzerPin, sol);
+  delay(130);
+  noTone(buzzerPin);
+  delay(220);
+    
+  tone(buzzerPin, si);
+  delay(230);
+  noTone(buzzerPin);
+  delay(135);
+    
+  tone(buzzerPin, sol);
+  delay(238);
+  noTone(buzzerPin);
+  delay(125);
+    
+  tone(buzzerPin, la);
+  delay(340);
+  noTone(buzzerPin);
+  delay(10);
+    
+  tone(buzzerPin, si);
+  delay(396);
+  noTone(buzzerPin);
+  delay(10);
+    
+  tone(buzzerPin, sol);
+  delay(144);
+  noTone(buzzerPin);
+  delay(34);
+  
+  tone(buzzerPin, fa);
+  delay(146);
+  noTone(buzzerPin);
+  delay(20);
+    
+  tone(buzzerPin, mi);
+  delay(225);
+  noTone(buzzerPin);
+  delay(420);
+
+}
