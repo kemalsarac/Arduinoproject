@@ -1,0 +1,86 @@
+#include <Servo.h>
+const int motorA1  = 5;  // L298N'in IN3 Girişi
+const int motorA2  = 6;  // L298N'in IN1 Girişi
+const int motorB1  = 9; // L298N'in IN2 Girişi
+const int motorB2  = 10;  // L298N'in IN4 Girişi
+Servo servo;
+
+int durum; 
+int Hiz=255;
+ 
+void setup() {
+    pinMode(motorA1, OUTPUT);
+    pinMode(motorA2, OUTPUT);
+    pinMode(motorB1, OUTPUT);
+    pinMode(motorB2, OUTPUT); 
+    servo.attach(7);  
+    int aciDegeri=45;
+    Serial.begin(9600);
+}
+ 
+void loop() {
+    if(Serial.available() > 0){     
+      durum = Serial.read();   
+      servo.write(45);
+    }
+  
+  // Uygulamadan ayarlanabilen 3 hız seviyesi.(Değerler 0-255 arası)
+   if (durum == '1'){
+      Hiz=50;}
+    else if (durum == '2'){
+      Hiz=150;}
+    else if (durum == '3'){
+      Hiz=255;}
+         
+  /******************** İleri *************************/
+    if (durum == 'F') {
+      analogWrite(motorA1, Hiz); analogWrite(motorA2, 0);
+        analogWrite(motorB1, Hiz);      analogWrite(motorB2, 0); 
+    }
+  /****************** İleri Sağ *********************/
+    else if (durum == 'I') {
+      analogWrite(motorA1,Hiz ); analogWrite(motorA2, 0);  
+        analogWrite(motorB1,Hiz);    analogWrite(motorB2, 0); 
+          servo.write(90);
+    }
+  /****************** İleri Sol ********************/
+    else if (durum == 'G') {
+        analogWrite(motorA1, Hiz); analogWrite(motorA2, 0); 
+        analogWrite(motorB1, Hiz);      analogWrite(motorB2, 0); 
+          servo.write(0);
+    }
+  /****************** Geri ****************************/
+    else if (durum == 'B') {
+      analogWrite(motorA1, 0);   analogWrite(motorA2, Hiz); 
+        analogWrite(motorB1, 0);   analogWrite(motorB2, Hiz); 
+    }
+  /******************* Geri Sağ **********************/
+    else if (durum == 'J') {
+      analogWrite(motorA1, 0);   analogWrite(motorA2, Hiz); 
+        analogWrite(motorB1, 0); analogWrite(motorB2, Hiz);
+         servo.write(90);
+    }
+  /******************* Geri Sol *********************/
+    else if (durum == 'H') {
+      analogWrite(motorA1, 0);   analogWrite(motorA2, Hiz); 
+        analogWrite(motorB1, 0);   analogWrite(motorB2, Hiz); 
+        servo.write(0);
+    }
+  /********************** Sağ *************************/
+    else if (durum == 'R') {
+      analogWrite(motorA1, 0);   analogWrite(motorA2, 0); 
+        analogWrite(motorB1, 0); analogWrite(motorB2, 0);
+        servo.write(90); 
+    }
+  /*********************** Sol  *************************/
+    else if (durum == 'L') {
+      analogWrite(motorA1, 0);   analogWrite(motorA2, 0); 
+        analogWrite(motorB1, 0);   analogWrite(motorB2, 0); 
+        servo.write(0);    
+    }
+  /********************* Dur ************************/
+    else if (durum == 'S'){
+        analogWrite(motorA1, 0);  analogWrite(motorA2, 0); 
+        analogWrite(motorB1, 0);  analogWrite(motorB2, 0);
+    }  
+}
